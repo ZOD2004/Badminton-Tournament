@@ -13,12 +13,17 @@ public class Team {
     public String teamName;
     public PlayerType type;
     public List<Player> players;
+    
+    private  int matchesPlayed;
+    private int matchesWon;
 
     public Team(List<Player> players, int teamId, String teamName, PlayerType type) {
         this.players = players;
         this.teamId = teamId;
         this.teamName = teamName;
         this.type = type;
+        this.matchesPlayed = 0;
+        this.matchesWon = 0;
     }
 
     public int getTeamId() {
@@ -51,6 +56,22 @@ public class Team {
 
     public void setPlayers(List<Player> players) {
         this.players = players;
+    }
+
+    public int getMatchesPlayed() {
+        return matchesPlayed;
+    }
+
+    public void setMatchesPlayed(int matchesPlayed) {
+        this.matchesPlayed = matchesPlayed;
+    }
+
+    public int getMatchesWon() {
+        return matchesWon;
+    }
+
+    public void setMatchesWon(int matchesWon) {
+        this.matchesWon = matchesWon;
     }
 
     

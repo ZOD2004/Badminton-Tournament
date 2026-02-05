@@ -6,9 +6,6 @@ public class Player extends Human{
     private PlayerType type;
     private Address playerAddress;
     private ShuttleRacket racket;
-    public int matchesPlayed;
-    public int matchesWon;
-    public int totalScoredPoint;
 
     public Player(Address playerAddress, int playerId, ShuttleRacket racket, int ratings, PlayerType type, int age, String ethnicity, int height, String name) {
         super(age, ethnicity, height, name);
@@ -28,9 +25,6 @@ public class Player extends Human{
         sb.append(", type=").append(type);
         sb.append(", playerAddress=").append(playerAddress);
         sb.append(", racket=").append(racket);
-        sb.append(", matchesPlayed=").append(matchesPlayed);
-        sb.append(", matchesWon=").append(matchesWon);
-        sb.append(", totalScoredPoint=").append(totalScoredPoint);
         sb.append('}');
         return sb.toString();
     }
@@ -75,28 +69,5 @@ public class Player extends Human{
         this.racket = racket;
     }
 
-    public int getMatchesPlayed() {
-        return matchesPlayed;
-    }
-
-    public void setMatchesPlayed(int matchesPlayed) {
-        this.matchesPlayed = matchesPlayed;
-    }
-
-    public int getMatchesWon() {
-        return matchesWon;
-    }
-
-    public void setMatchesWon(int matchesWon) {
-        this.matchesWon = matchesWon;
-    }
-
-    public int getTotalScoredPoint() {
-        return totalScoredPoint;
-    }
-
-    public void setTotalScoredPoint(int totalScoredPoint) {
-        this.totalScoredPoint = totalScoredPoint;
-    }
     
 }
