@@ -1,23 +1,17 @@
 package in.zerp.tournament.repository;
 
-import in.zerp.tournament.*;
-import in.zerp.tournament.models.Address;
-import in.zerp.tournament.models.Arena;
-import in.zerp.tournament.models.Audiance;
-import in.zerp.tournament.models.Player;
-import in.zerp.tournament.models.PlayerType;
-import in.zerp.tournament.models.Refree;
-import in.zerp.tournament.models.ShuttleCock;
-import in.zerp.tournament.models.ShuttleRacket;
-import in.zerp.tournament.models.Ticket;
+import in.zerp.tournament.models.*;
 import in.zerp.tournament.service.*;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Arrays;
+import java.util.ArrayList;
 
 public class DataInitializer {
 
     public static void initialize(TournamentService service) {
+        
+    
         Address a1 = new Address("RS Puram", "Coimbatore", "India", "TN", 10);
         Address a2 = new Address("Adyar", "Chennai", "India", "TN", 25);
         Address a3 = new Address("Indira Nagar", "Bangalore", "India", "KA", 5);
@@ -62,8 +56,30 @@ public class DataInitializer {
 
     	System.out.println("Address\nShuttleRacket\nShuttleCock\nPlayer\nRefree\nArena");
     	
-    	
-    	
+        for (int i = 1; i <= 25; i++) {
+            PlayerType type = (i <= 10) ? PlayerType.SINGLE : PlayerType.DOUBLE;
+            service.playerList.add(new Player(a1, 100 + i, r1, 1500 + (i * 10), type, 20 + (i % 5), "Indian", 170 + (i % 10), "Player_" + i));
+        }
+
+        System.out.println(">>> 25 Players initialized to support team creation. <<<");
+    }
+    public static void initializeTeams(TournamentService service) {
+
+        for (int i = 0; i < 10; i++) {
+            Player p = service.playerList.get(i);
+            List<Player> teamPlayers = new ArrayList<>(Arrays.asList(p));
+            service.teamList.add(new Team(teamPlayers, 200 + i, "S_Team_" + p.getName(), PlayerType.SINGLE));
+        }
+
+        int playerIndex = 10;
+        for (int i = 0; i < 10; i++) {
+            Player p1 = service.playerList.get(playerIndex++);
+            Player p2 = service.playerList.get(playerIndex++);
+            List<Player> teamPlayers = new ArrayList<>(Arrays.asList(p1, p2));
+            service.teamList.add(new Team(teamPlayers, 300 + i, "D_Pair_" + i, PlayerType.DOUBLE));
+        }
+
+        System.out.println(">>> 10 Singles and 10 Doubles Teams initialized successfully! <<<");
     }
     public static void initializeTickets(TicketManager ticketManager) {
     	
