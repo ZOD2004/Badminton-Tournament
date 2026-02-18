@@ -1,15 +1,19 @@
 package day14;
 
 import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class ObjectToXml  {
     static StringBuilder result = new StringBuilder("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n");
-    private static final Set<Class> WRAPPER_TYPES = new HashSet<>(Arrays.asList(
+
+    private static final Set<Class<?>> WRAPPER_TYPES = new HashSet<>(Arrays.asList(
             Boolean.class,Character.class,Integer.class,Long.class,Float.class,Double.class));
-    public static <T extends Object> String ObjectToXmlConversion(T obj) throws IllegalAccessException {
+
+    private static final Set<Class<?>> LIST_TYPES = new HashSet<>(Arrays.asList(HashSet.class, LinkedHashSet.class,
+    TreeSet.class,ArrayList.class,Vector.class,List.class));
+
+
+    public static <T> String ObjectToXmlConversion(T obj) throws IllegalAccessException {
 
         Class<?> cls = obj.getClass();
         String curr ="\n";
@@ -17,9 +21,17 @@ public class ObjectToXml  {
         Field[] fields = cls.getDeclaredFields();
         for(Field f:fields){
             Class<?>type = f.getType();
-            if(type.isPrimitive() || type == String.class || WRAPPER_TYPES.contains(type)){
+            if(isTagCreatable(type)){
                 curr+=(createElementTag(f,obj));
-            }else{
+            }else if(List.class.isAssignableFrom(type)){
+                f.setAccessible(true);
+                Object val = f.get(obj);
+                List<?> list = (List<?>) val;
+                for(Object i : list){
+                    curr+=ObjectToXmlConversion(i);
+                }
+            }
+            else{
                 f.setAccessible(true);
                 Object value = f.get(obj);
                 curr+= ObjectToXmlConversion(value);
@@ -28,6 +40,10 @@ public class ObjectToXml  {
         curr+=createEndTag(getRootTag(cls));
         curr+="\n";
         return curr;
+    }
+
+    public static boolean isTagCreatable(Class<?>type){
+        return (type.isPrimitive() || type == String.class || WRAPPER_TYPES.contains(type));
     }
 
     public static String createElementTag(Field f,Object obj) throws IllegalAccessException {
