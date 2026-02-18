@@ -1,12 +1,23 @@
 package day13;
 
-import java.util.List;
-
 public class Student {
-    final private String rollNo;
+    private String rollNo;
     private String name;
     private int age;
     private String dept;
+
+    @CusAnno(value = "Sensitive Data", priority = 10)
+    private String password;
+
+    public Student(String rollNo, String name) {
+        this.rollNo = rollNo;
+        this.name = name;
+    }
+
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 
     public Student(String rollNo, String name, int age, String dept) {
         this.rollNo = rollNo;
@@ -27,6 +38,9 @@ public class Student {
                 ", age=" + age +
                 ", dept='" + dept + '\'' +
                 '}';
+    }
+    public void sayHello(String name) {
+        System.out.println("Hello " + name);
     }
 
     public String getName() {

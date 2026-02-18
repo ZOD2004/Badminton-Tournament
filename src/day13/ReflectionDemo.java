@@ -1,14 +1,12 @@
 package day13;
 
-import java.lang.annotation.Annotation;
 import java.lang.reflect.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ReflectionDemo {
 
-    public static void main(String[] args) throws IllegalAccessException, NoSuchFieldException, NoSuchMethodException, InvocationTargetException, InstantiationException {
+    public static void main(String[] args) throws IllegalAccessException,
+            NoSuchFieldException, NoSuchMethodException, InvocationTargetException,
+            InstantiationException, ClassNotFoundException {
         System.out.println("HI");
         Student s = new Student("101", "Murali", 21, "It");
         Class<?>cls = s.getClass();
@@ -96,7 +94,8 @@ public class ReflectionDemo {
 //        Constructor<?> constructor=cls1.getDeclaredConstructor(String.class,String.class,Integer.class,String.class);
 //        Object obj=constructor.newInstance("104","Main",21,"CSE");
 //        System.out.println(obj);
-
+//        Class<?>cls4 = Student.class;
+//        Class<?>cl5 = Class.forName("day13.Student");
 
     }
 }
