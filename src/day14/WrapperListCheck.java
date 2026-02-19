@@ -3,12 +3,13 @@ package day14;
 import java.util.List;
 
 public class WrapperListCheck {
-    String name;
-    int age;
-    String role;
-    List<Integer> intList;
+    public String name;
+    public int age;
+    public String role;
+    public List<?> intList;
 
-    public WrapperListCheck(String name, int age, String role, List<Integer> intList) {
+
+    public WrapperListCheck(String name, int age, String role, List<?> intList) {
         this.name = name;
         this.age = age;
         this.role = role;
@@ -35,7 +36,7 @@ public class WrapperListCheck {
         this.role = role;
     }
 
-    public List<Integer> getIntList() {
+    public List<?> getIntList() {
         return intList;
     }
 

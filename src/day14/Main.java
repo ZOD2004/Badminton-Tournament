@@ -16,8 +16,8 @@ public class Main {
         Employee emp1 = new Employee("max", "k", 101, 5000.00,dept1,add1);
         Employee emp2 = new Employee("john", "p", 102, 6000.00,dept1,add2);
         Student s1 = new Student("01", "Alice", 20, "Cse", "a");
-        Student s2 = new Student("05", "Bob", 22, "it", "b");
-        Student s3 = new Student("10", "ram", 21, "eee", "r");
+        Student s2 = new Student("02", "Bob", 22, "it", "b");
+        Student s3 = new Student("03", "ram", 21, "eee", "r");
         List<Student>studs = new ArrayList<>(Arrays.asList(s1,s2,s3));
 //        CheckList cl = new CheckList();
         List<String>l = new ArrayList<>();
@@ -29,8 +29,9 @@ public class Main {
 //        List<?>checkLi = cl.getList();
 ////        System.out.println(checkLi);
         List<Integer>list1 = new ArrayList<>(Arrays.asList(1,2,4,5,6,7,8));
-        WrapperListCheck wlc = new WrapperListCheck("mu",21,"IT",list1);
+        WrapperListCheck wlc = new WrapperListCheck("mu",21,"IT",l);
         CheckList cl = new CheckList(studs);
+        CheckList cl1 = new CheckList(list1);
 //        System.out.println(cl.getEmpList());
         try{
             //TODO: to make the function work correctly on one variable try to introduce local variable and passing
@@ -38,16 +39,16 @@ public class Main {
 //            System.out.println(ObjToXml1.split(emp1));
 //            System.out.println(ObjToXml1.split(emp2));
 //            System.out.println(ObjToXml1.split(add1));
+//            System.out.println(ObjToXml1.split(wlc));
 
 //            works while Result is non static
 //            System.out.println(ObjToXml1.split(cl));
-//            System.out.println(ObjToXml1.split(wlc));
-//
+//            System.out.println(ObjToXml1.split(cl1));
+
 //            ObjToXml1.split(emp2)
 //            ObjToXml1.split(add1)
 //            ObjToXml1.split(cl)
 //            ObjToXml1.split(wlc)
-
 
 //            ObjToXml1.split(cl);
 //            ObjectToXml.convert(emp1);

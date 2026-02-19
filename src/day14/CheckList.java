@@ -7,26 +7,18 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CheckList {
-//    public List<?> getList() {
-//        return list;
-//    }
-//
-//    public void setList(List<?> list) {
-//        this.list = list;
-//    }
 
-    public List<Student> getEmpList() {
-        return empList;
+    public List<?> list;
+
+    public CheckList(List<?> list) {
+        this.list = list;
     }
 
-    public void setEmpList(List<Student> empList) {
-        this.empList = empList;
+    public List<?> getList() {
+        return list;
     }
 
-    public CheckList(List<Student> empList) {
-        this.empList = empList;
+    public void setList(List<?> list) {
+        this.list = list;
     }
-
-    //    public List<?>list = new ArrayList<>();
-    public List<Student> empList;
 }
