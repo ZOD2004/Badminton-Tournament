@@ -36,7 +36,7 @@ public class Main {
         try{
             //TODO: to make the function work correctly on one variable try to introduce local variable and passing
 //            works while Result is static
-//            System.out.println(ObjToXml1.split(emp1));
+            System.out.println(ObjToXml1.split(emp1));
 //            System.out.println(ObjToXml1.split(emp2));
 //            System.out.println(ObjToXml1.split(add1));
 //            System.out.println(ObjToXml1.split(wlc));

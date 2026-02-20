@@ -5,11 +5,25 @@ public class Address {
     private String city;
     private String zipCode;
 
+    public Address(){
+
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                '}';
+    }
+
     public String getStreet() {
         return street;
     }
 
     public void setStreet(String street) {
+//        System.out.println("setStreetMethod");
         this.street = street;
     }
 
@@ -18,6 +32,7 @@ public class Address {
     }
 
     public void setCity(String city) {
+//        System.out.println("setcityMethod");
         this.city = city;
     }
 
@@ -26,6 +41,7 @@ public class Address {
     }
 
     public void setZipCode(String zipCode) {
+//        System.out.println("setZipMethod");
         this.zipCode = zipCode;
     }
 

@@ -7,7 +7,7 @@ public class Employee {
     private double empSalary;
     Department dept;
     private Address empAddress;
-
+    public Employee(){}
     public String getEmpFirstName() {
         return empFirstName;
     }
