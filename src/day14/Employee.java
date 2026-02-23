@@ -3,7 +3,7 @@ package day14;
 public class Employee {
     private String empFirstName;
     private String empLastName;
-    transient private int empId;
+    private int empId;
     private double empSalary;
     Department dept;
     private Address empAddress;
@@ -63,5 +63,17 @@ public class Employee {
         this.empSalary = empSalary;
         this.dept = dept;
         this.empAddress = empAddress;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "empFirstName='" + empFirstName + '\'' +
+                ", empLastName='" + empLastName + '\'' +
+                ", empId=" + empId +
+                ", empSalary=" + empSalary +
+                ", dept=" + dept +
+                ", empAddress=" + empAddress +
+                '}';
     }
 }

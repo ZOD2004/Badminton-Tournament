@@ -54,4 +54,18 @@ public class Department {
         this.manager = manager;
         this.location = location;
     }
+    public Department(){
+
+    }
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "deptId=" + deptId +
+                ", deptName='" + deptName + '\'' +
+                ", block='" + block + '\'' +
+                ", manager='" + manager + '\'' +
+                ", location=" + location +
+                '}';
+    }
 }
